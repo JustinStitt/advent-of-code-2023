@@ -1,11 +1,13 @@
 #! /home/jstitt/repos/advent-of-code-2023/.venv/bin/python3
-# Advent of Code 2023 - Day 1 pt 1
+# Advent of Code 2023 - Day 1 pt 2
 import sys
 import itertools
 import functools
 import re
 from icecream import ic
 from collections import defaultdict
+
+spelled_out = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine"]
 
 
 class Soln:
@@ -17,6 +19,13 @@ class Soln:
         total = 0
         s = ""
         for line in self.lines:
+            ic(line)
+            for idx, so in enumerate(spelled_out):
+                while so in line:
+                    i = line.index(so)
+                    line = line[: i + 1] + str(idx + 1) + line[i + 2 :]
+                # line = line.replace(so, str(idx + 1))
+            ic(line)
             for c in line:
                 if c >= "0" and c <= "9":
                     s += c
