@@ -12,6 +12,8 @@ class Soln:
     def __init__(self, inp_file):
         with open(inp_file, "r") as fd:
             self.lines = [x.strip() for x in fd.readlines()]
+            self.rows = len(self.lines)
+            self.cols = len(self.lines[0])
 
     def solve(self):
         for line in self.lines:
