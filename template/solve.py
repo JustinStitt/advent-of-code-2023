@@ -23,5 +23,6 @@ class Soln:
 # fmt: off
 if __name__ == "__main__":
     if len(sys.argv) > 2 and sys.argv[2] == "-d": ic.disable()
+    else: ic.configureOutput(includeContext=True)
     soln = Soln(sys.argv[1] + ".in" if len(sys.argv) > 1 else "small.in")
     soln.solve()
