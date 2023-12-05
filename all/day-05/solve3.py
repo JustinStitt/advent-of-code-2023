@@ -82,18 +82,6 @@ class Soln:
                 if not was_in and m == humid_to_location:
                     best = min(val, best)
             return best
-        """
-        logs:
-            best ros defaultdict(<function Soln.solve.<locals>.<lambda> at 0x7f90e1c66660>, {2: 271557, 8: 78363, 4: 83238, 9: 14600, 7: 17839, 5: 32525, 3: 31722, 1: 13936, 0: 9279, 6: 2307})
-            best ros defaultdict(<function Soln.solve.<locals>.<lambda> at 0x7f12fbf52660>, {5: 32518, 2: 271365, 0: 9116, 8: 78400, 4: 82967, 3: 31783, 9: 14959, 7: 17629, 1: 13890, 6: 2274})
-
-            best ros [2088, 9]
-            best ros [1720, 9]
-            best ros [673, 9]
-            best ros [15891, 9]
-
-            best ro: 3107544690 59359615
-        """
         # small = 10**18
         # for seed in seeds:
         #     result = go (seed)
@@ -105,18 +93,18 @@ class Soln:
         #     r = go(seed)
         #     small=min(small, r)
         # print(small)
-        rng = range(3267750502-10_000, 3267750502+1_000_000)
-        smol = 10**18
-        for i in rng:
-            r = go(i)
-            smol=min(smol, r)
-        print('smol: ', smol)
-        exit()
+        # rng = range(3267750502-10_000, 3267750502+1_000_000)
+        # smol = 10**18
+        # for i in rng:
+        #     r = go(i)
+        #     smol=min(smol, r)
+        # print('smol: ', smol)
+        # exit()
 
         # simulate
         # 3213715789 312116873 = 3525832662
         smol, big = 0, 4_000_000_000
-        big = 3525832662 + 1
+        # big = 3525832662 + 1
         for _ in range(5):
             min_result = [10**18, None, None]
             for _ in range(1_000_000):
@@ -137,12 +125,6 @@ class Soln:
             print('best ros', min_result, flush=True)
 
         """
-        best ros [31168656, 8]
-        best ros [31165700, 8]
-        best ros [31164980, 8]
-        best ros [31161937, 8]
-        best ros [31164410, 8]
-        best ros [31162925, 8, 3267750502]
         best ros [31166662, 8, 3267754239]
         best ros [31165487, 8, 3267753064]
         best ros [31166246, 8, 3267753823]
