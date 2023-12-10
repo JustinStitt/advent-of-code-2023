@@ -53,9 +53,11 @@ for pt, neighbors in adj.items():
     pygame.draw.line(screen, pt_color, here, one)
     pygame.draw.line(screen, pt_color, here, two)
 
-    # if contained
-    if pt in contained:
-        pygame.draw.rect(screen, (0, 255, 0), (pt[1]*sz, pt[0]*sz, sz, sz))
+for pt in contained:
+    pt = list(pt)
+    pt[0] -= left_shift
+    pt[1] -= left_shift
+    pygame.draw.rect(screen, (0, 255, 0), (pt[1]*sz, pt[0]*sz, sz, sz))
 
 
 pygame.display.flip()
