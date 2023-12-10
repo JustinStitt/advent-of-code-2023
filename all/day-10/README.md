@@ -3,7 +3,8 @@
 Made a readme for this one because i want to share my render and some resources
 
 
-![](./Screenshot_30.png)
+<img width=400 height=400 src="./Screenshot_30.png"></img>
+<img width=400 height=400 src="./Screenshot_31.png"></img>
 
 ## And in green are the contained points
 
