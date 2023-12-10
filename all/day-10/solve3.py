@@ -116,12 +116,27 @@ class Soln:
         polygon = matplotlib.path.Path(pts)
         # https://matplotlib.org/stable/api/path_api.html oh fk
         total = 0
+        contained = []
         for r in range(rows):
             for c in range(cols):
                 if [c, r] not in pts and polygon.contains_point((c, r)): # dont count pts themselves right?
                     total += 1
+                    contained.append([r, c])
+
 
         print('total: ', total)
+
+        return contained
+
+def export_contained():
+    ic.disable()
+    # if len(sys.argv) > 2 and sys.argv[2] == "-d": ic.disable()
+    # else: ic.configureOutput(includeContext=True)
+    soln = Soln("big.in")
+    contained = soln.solve()
+    return contained
+
+
 # fmt: off
 if __name__ == "__main__":
     if len(sys.argv) > 2 and sys.argv[2] == "-d": ic.disable()

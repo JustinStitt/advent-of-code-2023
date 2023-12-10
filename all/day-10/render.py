@@ -1,4 +1,5 @@
 from solve2 import export_to_render
+from solve3 import export_contained
 
 import pygame
 pygame.init()
@@ -13,9 +14,9 @@ pt_color = (255, 0, 0)
 ln_color = (66, 66, 66)
 # grid lines
 n = 200
-sz = 10
+sz = 5
 r = sz//4
-left_shift = 15
+left_shift = 5
 # vertical
 for c in range(n):
     pygame.draw.line(screen, ln_color, (c*sz, 0), (c*sz, width))
@@ -27,6 +28,7 @@ for c in range(n):
 
 # DRAW ALL POINTS AND EDGES
 adj = export_to_render("big.in")
+contained = export_contained()
 print(adj)
 # pygame.draw.circle(screen, pt_color, (100, 100), 100)
 
@@ -50,6 +52,10 @@ for pt, neighbors in adj.items():
     # connect neighbors
     pygame.draw.line(screen, pt_color, here, one)
     pygame.draw.line(screen, pt_color, here, two)
+
+    # if contained
+    if pt in contained:
+        pygame.draw.rect(screen, (0, 255, 0), (pt[1]*sz, pt[0]*sz, sz, sz))
 
 
 pygame.display.flip()
