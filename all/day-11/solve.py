@@ -66,20 +66,6 @@ class Soln:
         print(total // 2)
 
 
-def floyd_warshall(graph):
-    dist = defaultdict(lambda: defaultdict(lambda: float("inf")))
-    for u in graph:
-        for v, w in graph[u].items():
-            dist[u][v] = w
-    for u in graph:
-        dist[u][u] = 0
-    for k in graph:
-        for i in graph:
-            for j in graph:
-                dist[i][j] = min(dist[i][j], dist[i][k] + dist[k][j])
-    return dist
-
-
 # fmt: off
 if __name__ == "__main__":
     if len(sys.argv) > 2 and sys.argv[2] == "-d": ic.disable()
