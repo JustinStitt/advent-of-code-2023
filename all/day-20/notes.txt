@@ -1,0 +1,13 @@
+only
+
+&df feeds into rx
+
+df relies on 4 conjunctions
+
+&xl
+&ln
+&xp
+&gp
+
+
+these four conjunctions must have each of their callers on all HIGH memory to send a low signal
